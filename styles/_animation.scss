@@ -1,3 +1,7 @@
+body {
+  background-image: url("../background.jpg");
+  background-size: cover;
+}
 .container {
   border-radius: 30px;
   padding: 20px;
@@ -13,6 +17,17 @@
   align-items: center;
   justify-content: center;
 }
+.prompt {
+  padding: 30px;
+  border-radius: 50px;
+  background: rgba(#777, 0.6);
+  animation: moveInBottom;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  &__text {
+    font-size: 20px;
+  }
+}
 .display {
   display: flex;
   flex-direction: column;
@@ -24,6 +39,9 @@
   top: 10px;
 }
 button {
+  animation-name: moveInRight;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
   text-transform: uppercase;
   padding: 15px 20px;
   border-radius: 5px;
@@ -48,6 +66,9 @@ button {
   }
 }
 input {
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
   font-size: 16px;
   border: none;
   padding: 10px;
@@ -58,4 +79,40 @@ input:focus {
 .icon {
   width: 100px;
   height: 100px;
+}
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+  80% {
+    transform: translateX(1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+  80% {
+    transform: translateX(-1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

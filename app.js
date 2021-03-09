@@ -17,16 +17,18 @@ const fetchData = async (searchTerm) => {
   if (response.data.Error) {
     return [];
   }
+  let num = response.data.main.temp;
   display.innerHTML = `
 
   <h1>City: ${response.data.name}   </h1>
-  <h2>Tempreture: ${response.data.main.temp}&deg;C </h2>
-   <img class="icon" src="https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png">`;
+  <h2>Tempreture: ${Math.round(num)}&deg;C </h2>
+   <img class="icon" src="https://openweathermap.org/img/wn/${
+     response.data.weather[0].icon
+   }@2x.png">`;
   const resData = response.data;
   return response.data;
 };
 btn.addEventListener("click", () => {
-  console.log("haha");
   let Term = input.value;
   fetchData(Term);
 });
